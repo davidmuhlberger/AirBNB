@@ -10,6 +10,9 @@
 </head>
 <body>
     <%= render "shared/navbar" %>
+    <p class="notice"><%= notice %></p>
+    <%= render 'shared/notices' %>
+    <%= render 'shared/alerts' %>
     <%= yield %>
     <%= render "shared/footer" %>
 

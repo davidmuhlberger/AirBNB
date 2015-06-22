@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.2.2'
 
+gem 'devise'
+
 gem 'rails_12factor', group: :production
 
 gem 'puma',           group: :production
