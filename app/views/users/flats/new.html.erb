@@ -1,0 +1,14 @@
+<h1>Create a new flat</h1>
+
+<%= simple_form_for(@flat, url: users_flats_path) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :address_numberstreet %>
+  <%= f.input :address_zip %>
+  <%= f.input :address_city %>
+  <%= f.input :night_price, label: "price per night in euro" %>
+  <%= f.input :capacity, label: "persons" %>
+  <%= f.button :submit %>
+<% end %>
