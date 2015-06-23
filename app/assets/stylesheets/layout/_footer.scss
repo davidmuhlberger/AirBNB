@@ -1,1 +1,15 @@
 // Your footer style
+#social-links {
+  a {
+    color: #2F2F2F;
+    &:hover {
+      color: #595959;
+      transition: ease 0.3s;
+    }
+  }
+}
+
+#footer {
+  font-size: 25px;
+  padding: 50px;
+}
