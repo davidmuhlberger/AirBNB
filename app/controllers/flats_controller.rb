@@ -1,7 +1,7 @@
 class FlatsController < ApplicationController
   before_action :find_user
 
-  def index
+  def index_user
     @flats = Flat.all
   end
 
