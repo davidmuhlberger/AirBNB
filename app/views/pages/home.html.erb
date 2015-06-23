@@ -1,7 +1,25 @@
-<h1>Pages#home</h1>
+<h1 class="text-center">Welcome to Pepere BnB</h1>
+
+<div class="row">
+  <div class="sm-col-10 col-sm-offset-1">
+    <%= form_tag flats_path, :method => :get do |f| %>
+      <div class="input-group padded">
+        <%= search_field_tag :city, params[:city], placeholder: "Where do you want to go?", class: "form-control" %>
+        <%= search_field_tag :guests, params[:guests], placeholder: "How many people will you travel with?", class: "form-control" %>
+        <span>
+         <%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <div
   class="fb-like"
   data-share="true"
   data-width="450"
   data-show-faces="true">
 </div>
+
+
+
