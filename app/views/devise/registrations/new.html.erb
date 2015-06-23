@@ -17,27 +17,3 @@
     </div>
   </div>
 </div>
-<!-- Same in app/views/sessions/new/html.erb for login.
-REQUEST LOGIN FOR YOUR APP
-
-LIMITING ACCESS
-
-# app/controllers/application_controller.rb
-class ApplicationController < ActionController::Base
-  before_action :authenticate_user!
-end
-SKIPPING LOGIN FOR SOME PAGES
-
-# app/controllers/welcome_controller.rb
-class WelcomeController < ApplicationController
-  skip_before_action :authenticate_user!
-
-  def index
-  end
-end
-HAPPY HACKING!
-
-FULL EXAMPLE
-
-lewagon/rails-boilerplates-devise -->
-
