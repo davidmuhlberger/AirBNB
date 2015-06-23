@@ -17,11 +17,6 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li>
-            <%= link_to "#" do %>
-              <i class="fa fa-envelope-o"></i> <%= t(".messages", default: "Messages") %>
-            <% end %>
-          </li>
           <li class="dropdown">
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
               <% if current_user.uid.present? %>
@@ -54,9 +49,6 @@
               </li>
             </ul>
           </li>
-          <li>
-            <%= link_to "Rent your place now!", "new_user_flat_path", class: "btn" %>
-          </li>
         <% else %>
           <li>
             <%= link_to t(".sign_up", default: "Sign up"), new_user_registration_path %>
@@ -67,10 +59,10 @@
           <li>
             <%= link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook) %>
           </li>
-          <li>
-            <%= link_to "Rent your place now!", new_user_registration_path, class: "btn" %>
-          </li>
         <% end %>
+        <li>
+          <%= link_to "Rent your place now!", new_users_flat_path, class: "btn" %>
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
