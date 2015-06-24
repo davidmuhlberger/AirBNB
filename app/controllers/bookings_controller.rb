@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_flat, only: [:new, :create]
-  before_action :find_booking, only: [:edit, :cancel, :update]
+  before_action :find_booking, only: [:edit, :cancel, :update, :confirm, :reject]
 
   def index
     @bookings = current_user.bookings
@@ -37,6 +37,18 @@ class BookingsController < ApplicationController
 
   def cancel
     @booking.status = "Cancelled"
+    @booking.save
+    redirect_to booking_path(@booking)
+  end
+
+  def confirm
+    @booking.status = "Confirmed"
+    @booking.save
+    redirect_to booking_path(@booking)
+  end
+
+  def reject
+    @booking.status = "Rejected"
     @booking.save
     redirect_to booking_path(@booking)
   end
