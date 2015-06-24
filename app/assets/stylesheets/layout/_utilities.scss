@@ -31,3 +31,22 @@
   background: $purple;
   color: white;
 }
+
+.bg-darker-grey {
+  background: #D8D8D8;
+  color: rgb(50, 50, 50);
+}
+
+#facebook_details {
+  position: absolute;
+  margin-bottome: 10px;
+}
+
+.white-card {
+  background-color: white;
+  border-radius: 2px;
+  border: 1px solid rgba(30, 30, 30, 0);
+  padding: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

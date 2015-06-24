@@ -1,27 +1,48 @@
-<h1><%= @user.email + "'s profile"%></h1>
+<div class="text-center">
+<h1><%= @user.email%></h1>
+</div>
+<br>
+<br>
+<br>
+<div class="container bg-darker-grey">
+  <div class="row text-center"><h3>Flats</h3></div>
+    <% @user.flats.each do |flat| %>
+      <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8">
+          <div class="row white-card">
+            <div class="col-xs-12 col-sm-6">
+              <%= image_tag flat.picture.url(:medium) %>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <h4><%= flat.title %></h4>
+              <br>
+              <p><%= flat.description %></p>
+              <p>Adress: </p>
+              <p><%= flat.address_numberstreet %></p>
+              <p><%= "#{flat.address_zip} #{flat.address_city}" %></p>
+              <p><%= "Night price: #{flat.night_price} €" %></p>
+              <p><%= "Capacity: #{flat.capacity} people" %></p>
+              <%= link_to "Edit flat", edit_users_flat_path(flat), class: "btn btn-warning" %>
+              <%= link_to "Delete flat", users_flat_path(flat),
+                          method: :delete,
+                          data: { confirm: "Are you sure?" },
+                          class: "btn btn-danger"%>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-2"></div>
+      </div>
+    <% end %>
+    <div class="row text-center">
+      <%= link_to "Add new flat", new_users_flat_path, class: "btn btn-primary"%>
+    </div>
+<br>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-<h3>First name</h3>
-<h3>Name</h3>
-<h3>pic</h3>
-<br>
-<br>
-<br>
-<h3>List of flats</h3>
 
-<% @user.flats.each do |flat| %>
-<h4><%= flat.title %></h4>
-<p><%= flat.description %></p>
-<p>Adress: </p>
-<p><%= flat.address_numberstreet %></p>
-<p><%= "#{flat.address_zip} #{flat.address_city}" %></p>
-<p><%= "Night price: #{flat.night_price} €" %></p>
-<p><%= "Capacity: #{flat.capacity} people" %></p>
-<%= link_to "Edit flat", edit_users_flat_path(flat), class: "btn btn-warning" %>
-<%= link_to "Delete flat", users_flat_path(flat),
-            method: :delete,
-            data: { confirm: "Are you sure?" },
-            class: "btn btn-danger"%>
-<% end %>
-<br>
-<br>
-<%= link_to "Add new flat", new_users_flat_path, class: "btn btn-primary"%>

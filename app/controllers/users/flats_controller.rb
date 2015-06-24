@@ -37,7 +37,7 @@ module Users
     private
 
     def flat_params
-      params.require(:flat).permit(:title, :description, :address_numberstreet, :address_city, :address_zip, :night_price, :capacity)
+      params.require(:flat).permit(:title, :description, :address_numberstreet, :address_city, :address_zip, :night_price, :capacity, :picture)
     end
 
   end
