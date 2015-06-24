@@ -1,11 +1,16 @@
-<h1 class="text-center">Welcome to Pepere BnB</h1>
-
+<div id="bacground_home">
+<h1 class="text-center">Welcome to PepereBnB</h1>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="row">
   <div class="sm-col-10 col-sm-offset-1">
     <%= form_tag flats_path, :method => :get do |f| %>
-      <div class="input-group padded">
-        <%= search_field_tag :city, params[:city], placeholder: "Where do you want to go?", class: "form-control" %>
-        <%= search_field_tag :guests, params[:guests], placeholder: "How many people will you travel with?", class: "form-control" %>
+      <div class="form-inline">
+        <%= search_field_tag :city, params[:city], placeholder: "Where are you going?", class: "form-control" %>
+        <%= search_field_tag :guests, params[:guests], placeholder: "How many guests?", class: "form-control" %>
         <span>
          <%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
         </span>
@@ -13,13 +18,18 @@
     <% end %>
   </div>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <div
   class="fb-like"
   data-share="true"
   data-width="450"
-  data-show-faces="true">
+  data-show-faces="true"
+  id="#facebook_details">
 </div>
-
-
+</div>
 

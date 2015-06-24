@@ -1,6 +1,6 @@
 <h1>Create a new flat</h1>
 
-<%= simple_form_for(@flat, url: users_flats_path) do |f| %>
+<%= simple_form_for(@flat, url: users_flats_path, html: { multipart: true }) do |f| %>
   <%= f.error_notification %>
 
   <%= f.input :title %>
@@ -10,5 +10,6 @@
   <%= f.input :address_city %>
   <%= f.input :night_price, label: "price per night in euro" %>
   <%= f.input :capacity, label: "persons" %>
+  <%= f.input :picture, as: :file, label: "Add a picture of your place" %>
   <%= f.button :submit %>
 <% end %>

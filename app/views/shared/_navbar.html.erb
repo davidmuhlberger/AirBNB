@@ -22,7 +22,7 @@
               <% if current_user.uid.present? %>
                 <%= image_tag current_user.picture, class: "img-avatar" %>
               <% else %>
-                <%= image_tag "http://placehold.it/30x30", class: "img-avatar" %>
+                <%= image_tag current_user.picture, class: "img-avatar" %>
               <% end %>
               Profile <span class="caret"></span>
             <% end %>
