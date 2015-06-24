@@ -7,3 +7,8 @@
 <p><%= "Night price: #{@flat.night_price} €" %></p>
 <p><%= "Capacity: #{@flat.capacity} people" %></p>
 <p><%= "Host: #{@flat.user.email}" %></p>
+
+
+<p>
+  <%= link_to "Book now!", new_flat_booking_path(@flat), class: "btn btn-primary" %>
+</p>

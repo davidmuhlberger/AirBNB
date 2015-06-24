@@ -1,0 +1,13 @@
+<h1>Edit booking</h1>
+
+<%= simple_form_for(@booking, url: user_booking_path(@booking)) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :guests, label: "Number of guests" %>
+  <%= f.input :check_in %>
+  <%= f.input :check_out %>
+  <%= f.input :message %>
+  <p><%= f.button :submit %></p>
+<% end %>
+
+<p><%= link_to "Cancel your booking", booking_cancel_user_path(@booking), class: "btn btn-danger" %></p>

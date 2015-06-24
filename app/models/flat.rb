@@ -1,5 +1,6 @@
 class Flat < ActiveRecord::Base
   belongs_to :user
+  has_many :bookings
   validates :title, presence: true
   validates :address_numberstreet, presence: true
   validates :address_zip, presence: true

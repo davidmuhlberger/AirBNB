@@ -1,0 +1,12 @@
+<h1>Book <%= @flat.title %></h1>
+
+
+<%= simple_form_for(@booking, url: flat_bookings_path) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :guests, label: "Number of guests" %>
+  <%= f.input :check_in %>
+  <%= f.input :check_out %>
+  <%= f.input :message %>
+  <p><%= f.button :submit %></p>
+<% end %>
