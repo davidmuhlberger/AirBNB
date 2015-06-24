@@ -1,0 +1,12 @@
+<h1>My bookings</h1>
+
+<% @bookings.each do |booking| %>
+  <h4><%= booking.flat.title %></h4>
+  <p><%= booking.flat.address_numberstreet %></p>
+  <p><%= booking.flat.address_city %></p>
+  <p>Check in: <%= booking.check_in %></p>
+  <p>Check out: <%= booking.check_out %></p>
+  <p>Guests: <%= booking.guests %></p>
+  <p>Status: <%= booking.status %></p>
+  <p><%= link_to "Edit booking", edit_user_booking_path(booking), class: "btn btn-warning" %></p>
+<% end %>
