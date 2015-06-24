@@ -1,17 +1,41 @@
+<div class="text-center">
 <h1>Booking summary</h1>
-
-<h4><%= @booking.flat.title %></h4>
-<p>Check in: <%= @booking.check_in %></p>
-<p>Check out: <%= @booking.check_out %></p>
-<p>Guests: <%= @booking.guests %></p>
-<p>Status: <%= @booking.status %></p>
-
-<p>
-  <%= @booking.flat.night_price %> &euro; x <%= (@booking.check_out - @booking.check_in).to_i %> nights
+</div>
+<br>
+<br>
+<br>
+<div class="container bg-darker-grey">
   <br>
-  Total: <%= (@booking.flat.night_price * (@booking.check_out - @booking.check_in).to_i) %> &euro;
-</p>
+      <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8">
+          <div class="row white-card">
+            <div class="col-xs-12 col-sm-6">
+              <%= image_tag @booking.flat.picture.url(:medium) %>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <h4><%= @booking.flat.title %></h4>
+              <p>Check in: <%= @booking.check_in %></p>
+              <p>Check out: <%= @booking.check_out %></p>
+              <p>Guests: <%= @booking.guests %></p>
+              <p>Status: <%= @booking.status %></p>
 
-<p><%= link_to "Edit booking", edit_user_booking_path(@booking), class: "btn btn-warning" %></p>
-
-<p><%= link_to "Back to my bookings", user_bookings_path %></p>
+              <p>
+                <%= @booking.flat.night_price %> &euro; x <%= (@booking.check_out - @booking.check_in).to_i %> nights
+                <br>
+                Total: <%= (@booking.flat.night_price * (@booking.check_out - @booking.check_in).to_i) %> &euro;
+              </p>
+              <p><%= link_to "Edit booking", edit_user_booking_path(@booking), class: "btn btn-warning" %></p>
+              <p><%= link_to "Back to my bookings", user_bookings_path %></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-2"></div>
+      </div>
+<br>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
