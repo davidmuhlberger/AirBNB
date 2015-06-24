@@ -19,8 +19,10 @@
         <% if user_signed_in? %>
           <li class="dropdown">
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-              <% if current_user.uid.present? %>
-                <%= image_tag current_user.picture, class: "img-avatar" %>
+              <% if auth.info.image.present? %>
+                <%= avatar_url = process_uri(auth.info.image)
+                current_user.update_attribute(:avatar, URI.parse(avatar_url)),
+                class: "img-avatar" %>
               <% else %>
                 <%= image_tag current_user.picture, class: "img-avatar" %>
               <% end %>
