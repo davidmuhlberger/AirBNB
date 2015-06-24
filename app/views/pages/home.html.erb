@@ -1,11 +1,15 @@
 <div id="bacground_home">
 <h1 class="text-center">Welcome to PepereBnB</h1>
-
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="row">
   <div class="sm-col-10 col-sm-offset-1">
     <%= form_tag flats_path, :method => :get do |f| %>
-      <div class="input-group padded">
-        <%= search_field_tag :city, params[:city], placeholder: "Where do you want to go?", class: "form-control" %>
+      <div class="form-inline">
+        <%= search_field_tag :city, params[:city], placeholder: "Where are you going?", class: "form-control" %>
         <%= search_field_tag :guests, params[:guests], placeholder: "How many guests?", class: "form-control" %>
         <span>
          <%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
@@ -14,7 +18,11 @@
     <% end %>
   </div>
 </div>
-
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <div
   class="fb-like"

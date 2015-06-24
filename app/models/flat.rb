@@ -8,7 +8,7 @@ class Flat < ActiveRecord::Base
   validates :capacity, presence: true
 
   has_attached_file :picture,
-    styles: { medium: "300x300#", thumb: "200x200#" }
+    styles: { medium: "300x300#", thumb: "150x150#" }
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/

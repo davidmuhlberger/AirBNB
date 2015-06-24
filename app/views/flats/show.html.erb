@@ -1,10 +1,41 @@
-<h1><%= @flat.title %></h1>
-<%= image_tag @flat.picture.url(:medium) %>
-
-<p><%= @flat.description %></p>
-<p>Adress: </p>
-<p><%= @flat.address_numberstreet %></p>
-<p><%= "#{@flat.address_zip} #{@flat.address_city}" %></p>
-<p><%= "Night price: #{@flat.night_price} €" %></p>
-<p><%= "Capacity: #{@flat.capacity} people" %></p>
-<p><%= "Host: #{@flat.user.email}" %></p>
+<div class="text-center">
+<h1><%= @flat.title%></h1>
+</div>
+<br>
+<br>
+<br>
+<div class="container bg-darker-grey">
+  <br>
+  <br>
+      <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10">
+          <div class="row white-card">
+            <div class="col-xs-12 col-sm-6">
+              <%= image_tag @flat.picture.url(:medium) %>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <h4><%= @flat.title %></h4>
+              <br>
+              <p><%= @flat.description %></p>
+              <p>Adress: </p>
+              <p><%= @flat.address_numberstreet %></p>
+              <p><%= "#{@flat.address_zip} #{@flat.address_city}" %></p>
+              <p><%= "Night price: #{@flat.night_price} €" %></p>
+              <p><%= "Capacity: #{@flat.capacity} people" %></p>
+              <p><%= "Host: #{@flat.user.email}" %></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-1"></div>
+      </div>
+    <div class="row text-center">
+      <%= link_to "Book now", "#", class: "btn btn-primary"%>
+    </div>
+<br>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
