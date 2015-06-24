@@ -8,5 +8,6 @@
   <p>Check out: <%= booking.check_out %></p>
   <p>Guests: <%= booking.guests %></p>
   <p>Status: <%= booking.status %></p>
+  <p>Price: <%= (booking.flat.night_price * (booking.check_out - booking.check_in).to_i) %> &euro;</p>
   <p><%= link_to "Edit booking", edit_user_booking_path(booking), class: "btn btn-warning" %></p>
 <% end %>

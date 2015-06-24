@@ -6,6 +6,12 @@
 <p>Guests: <%= @booking.guests %></p>
 <p>Status: <%= @booking.status %></p>
 
+<p>
+  <%= @booking.flat.night_price %> &euro; x <%= (@booking.check_out - @booking.check_in).to_i %> nights
+  <br>
+  Total: <%= (@booking.flat.night_price * (@booking.check_out - @booking.check_in).to_i) %> &euro;
+</p>
+
 <p><%= link_to "Edit booking", edit_user_booking_path(@booking), class: "btn btn-warning" %></p>
 
 <p><%= link_to "Back to my bookings", user_bookings_path %></p>
