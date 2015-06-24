@@ -1,3 +1,7 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-8">
 <h1>Edit booking</h1>
 
 <%= simple_form_for(@booking, url: user_booking_path(@booking)) do |f| %>
@@ -9,5 +13,9 @@
   <%= f.input :message %>
   <p><%= f.button :submit %></p>
 <% end %>
+  </div>
+  <div class="col-xs-2"></div>
+</div>
+</div>
 
 <p><%= link_to "Cancel your booking", booking_cancel_user_path(@booking), class: "btn btn-danger" %></p>

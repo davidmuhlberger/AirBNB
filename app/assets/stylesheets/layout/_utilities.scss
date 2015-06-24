@@ -45,8 +45,18 @@
 .white-card {
   background-color: white;
   border-radius: 2px;
-  border: 1px solid rgba(30, 30, 30, 0);
+  border: 1px solid rgba(100, 100, 100, 0);
   padding: 30px;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.white-card-250 {
+  background-color: white;
+  border-radius: 2px;
+  border: 1px solid rgba(100, 100, 100, 0);
+  padding: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 250px;
 }
