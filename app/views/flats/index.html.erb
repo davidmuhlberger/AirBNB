@@ -7,12 +7,14 @@
 <div class="container bg-darker-grey">
   <div class="row">
     <% @flats.each do |flat| %>
-        <div class="col-xs-1"></div>
-        <div class="col-xs-10 col-sm-4 white-card">
+        <div class="col-xs-12 col-lg-6">
+          <div class="row">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10 white-card-250">
           <div class="col-xs-6 text-center">
             <%= image_tag flat.picture.url(:thumb) %>
           </div>
-          <div class="col-xs-6">
+          <div class="col-xs-6 text-center">
             <h4><%=link_to flat.title, flat_path(flat) %></h4>
             <br>
             <p><%= "Night price: #{flat.night_price} €" %></p>
@@ -20,8 +22,9 @@
           </div>
         </div>
         <div class="col-xs-1"></div>
+        </div>
+        </div>
     <% end %>
-  </div>
 <br>
 </div>
 <br>

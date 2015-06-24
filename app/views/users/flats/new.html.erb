@@ -1,4 +1,8 @@
-<h1>Create a new flat</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-8">
+    <h1>Create a new flat</h1>
 
 <%= simple_form_for(@flat, url: users_flats_path, html: { multipart: true }) do |f| %>
   <%= f.error_notification %>
@@ -13,3 +17,8 @@
   <%= f.input :picture, as: :file, label: "Add a picture of your place" %>
   <%= f.button :submit %>
 <% end %>
+  </div>
+  <div class="col-xs-2"></div>
+</div>
+</div>
+
