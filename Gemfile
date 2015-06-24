@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 
 ruby '2.2.2'
 
-gem 'open_uri_redirections'
-
 gem 'aws-sdk', '< 2.0'
 
 gem 'paperclip'
