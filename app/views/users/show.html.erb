@@ -1,7 +1,7 @@
 <div class="text-center">
 <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
 <h2><%= @user.email%></h2>
-<%= image_tag @user.picture.url(:medium) %>
+<%= image_tag @user.picture.url(:medium), class: "img-round"%>
 </div>
 <br>
 <br>

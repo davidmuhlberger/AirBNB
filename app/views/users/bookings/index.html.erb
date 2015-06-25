@@ -1,7 +1,47 @@
-<h1>My requests</h1>
-<% @requests.each do |request| %>
-<p><%= request.user.first_name %></p>
-<p><%= request.flat.title %></p>
-<p><%= request.check_in %></p>
-<p><%= request.check_out %></p>
-<% end %>
+<div class="text-center">
+  <h1>Rental requests</h1>
+</div>
+<br>
+<br>
+<br>
+<div class="container bg-darker-grey">
+  <div class="row">
+    <% @requests.each do |request| %>
+        <div class="col-xs-12 text-center">
+          <div class="row">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10 white-card">
+              <p><%= "Renting request for " %> <strong><%= request.flat.title %></strong></p>
+              <p>From <strong><%= request.check_in%></strong> to <strong><%= request.check_out%></strong></p>
+              <p><%= "PepereBnB member: #{request.user.first_name} #{request.user.last_name}" %></p>
+              <%= image_tag request.user.picture.url(:thumb), class: "img-small-round" %>
+              <%= request.user.email %>
+              <br>
+              <div class="text-center">
+                <h4>Booking request status</h4>
+              </div>
+              <br>
+              <% if request.status == "Pending" %>
+                <button type="button" class="btn btn-default btn-block"><%= request.status %></button>
+                <%= link_to "Confirm booking request",  users_booking_confirm_path(request), class: "btn btn-success btn-block"%>
+                <%= link_to "Reject booking request",  users_booking_reject_path(request), class: "btn btn-danger btn-block"%>
+              <% elsif request.status == "Cancelled" %>
+                <button type="button" class="btn btn-danger btn-block"><%= request.status %></button>
+              <% elsif request.status == "Rejected" %>
+                <button type="button" class="btn btn-danger btn-block"><%= request.status %></button>
+              <% elsif request.status == "Confirmed" %>
+                <button type="button" class="btn btn-success btn-block"><%= request.status %></button>
+              <% end %>
+            </div>
+          <div class="col-xs-1"></div>
+        </div>
+        </div>
+      <% end %>
+<br>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>

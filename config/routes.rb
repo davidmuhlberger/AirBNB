@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   namespace :users do
     resources :flats, only: [:create, :new, :destroy, :edit, :update]
     resources :bookings, only: [:index]
+    get 'bookings/:id/reject', to: "bookings#reject", as: :booking_reject
+    get 'bookings/:id/confirm', to: "bookings#confirm", as: :booking_confirm
   end
 
   resources :flats, only: [:index, :show] do

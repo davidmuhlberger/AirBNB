@@ -4,16 +4,18 @@ module Users
     before_action :authenticate_user!
     before_action :find_requests
 
-    def change_status_to_rejected
+    def reject
+      @booking = Booking.find(params[:id])
       @booking.status = "Rejected"
       @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to users_bookings_path
     end
 
-    def change_status_to_confirmed
+    def confirm
+      @booking = Booking.find(params[:id])
       @booking.status = "Confirmed"
       @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to users_bookings_path
     end
 
     def index
