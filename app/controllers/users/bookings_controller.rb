@@ -30,6 +30,7 @@ module Users
           @requests << booking
         end
       end
+      @requests.sort_by! {|request| -(request.updated_at).to_f}
     end
 
   end
