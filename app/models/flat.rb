@@ -16,9 +16,9 @@ class Flat < ActiveRecord::Base
 
   geocoded_by :full_address
   after_validation :geocode, if: ->(flat){
-    flat.address_numberstreet.present && flat.address_numberstreet_changed?
-    flat.address_zip.present && flat.address_zip_changed?
-    flat.address_city.present && flat.address_city_changed?
+    flat.address_numberstreet.present? && flat.address_numberstreet_changed?
+    flat.address_zip.present? && flat.address_zip_changed?
+    flat.address_city.present? && flat.address_city_changed?
   }
 
 
