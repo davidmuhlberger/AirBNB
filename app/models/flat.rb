@@ -13,4 +13,16 @@ class Flat < ActiveRecord::Base
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
+
+  geocoded_by :full_address
+  after_validation :geocode, if: ->(flat){
+    flat.address_numberstreet.present && flat.address_numberstreet_changed?
+    flat.address_zip.present && flat.address_zip_changed?
+    flat.address_city.present && flat.address_city_changed?
+  }
+
+
+  def full_address
+    "#{address_numberstreet} #{address_zip} #{address_city}"
+  end
 end
