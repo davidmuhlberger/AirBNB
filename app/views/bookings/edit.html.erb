@@ -8,8 +8,8 @@
   <%= f.error_notification %>
 
   <%= f.input :guests, label: "Number of guests" %>
-  <%= f.input :check_in %>
-  <%= f.input :check_out %>
+  <%= f.input :check_in, as: :string, :input_html => { :data => {:provide => :datepicker, 'date-format': "dd/mm/yyyy"} } %>
+  <%= f.input :check_out, as: :string, :input_html => { :data => {:provide => :datepicker, 'date-format': "dd/mm/yyyy"} } %>
   <%= f.input :message %>
   <p><%= f.button :submit %></p>
 <% end %>
