@@ -11,10 +11,10 @@
         <div class="col-xs-2"></div>
         <div class="col-xs-8">
           <div class="row white-card">
-            <div class="col-xs-12 col-sm-6">
+            <div class="col-xs-12 col-md-6 text-center">
               <%= image_tag booking.flat.picture.url(:medium) %>
             </div>
-            <div class="col-xs-12 col-sm-6">
+            <div class="col-xs-12 col-md-6 text-center">
               <h4><%= booking.flat.title %></h4>
               <p><%= booking.flat.address_numberstreet %></p>
               <p><%= booking.flat.address_city %></p>
@@ -23,16 +23,35 @@
               <p>Guests: <%= booking.guests %></p>
               <p>Status: <%= booking.status %></p>
               <p>Price: <%= (booking.flat.night_price * (booking.check_out - booking.check_in).to_i) %> &euro;</p>
-              <p><%= link_to "Edit booking", edit_user_booking_path(booking), class: "btn btn-warning" %></p>
+            </div>
+            <div class="col-xs-12 text-center">
+              <div class="text-center">
+                <br>
+                <br>
+                <h4>Booking status</h4>
+              </div>
+              <br>
+              <% if booking.status == "Pending" %>
+                <button type="button" class="btn btn-default btn-block"><%= booking.status %></button>
+                <br>
+                <%= link_to "Cancel booking request",  booking_cancel_user_path(booking), class: "text-danger"%>
+              <% elsif booking.status == "Cancelled" %>
+                <button type="button" class="btn btn-danger btn-block"><%= booking.status %></button>
+              <% elsif booking.status == "Rejected" %>
+                <button type="button" class="btn btn-danger btn-block"><%= booking.status %></button>
+              <% elsif booking.status == "Confirmed" %>
+                <button type="button" class="btn btn-success btn-block"><%= booking.status %></button>
+                <br>
+                <%= link_to "Cancel booking request",  booking_cancel_user_path(booking), class: "text-danger"%>
+              <% end %>
+            </div>
             </div>
           </div>
+          <div class="col-xs-2"></div>
         </div>
-        <div class="col-xs-2"></div>
+        <% end %>
+        <br>
       </div>
-    <% end %>
-<br>
-</div>
-<br>
 <br>
 <br>
 <br>
