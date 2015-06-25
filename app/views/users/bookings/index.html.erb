@@ -1,0 +1,7 @@
+<h1>My requests</h1>
+<% @requests.each do |request| %>
+<p><%= request.user.first_name %></p>
+<p><%= request.flat.title %></p>
+<p><%= request.check_in %></p>
+<p><%= request.check_out %></p>
+<% end %>

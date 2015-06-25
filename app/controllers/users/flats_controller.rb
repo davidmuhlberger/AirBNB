@@ -1,8 +1,6 @@
 module Users
   class FlatsController < ApplicationController
 
-    # layout 'users'
-
     before_action :authenticate_user!
 
     def new
