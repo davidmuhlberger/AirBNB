@@ -41,18 +41,6 @@ class BookingsController < ApplicationController
     redirect_to booking_path(@booking)
   end
 
-  def confirm
-    @booking.status = "Confirmed"
-    @booking.save
-    redirect_to booking_path(@booking)
-  end
-
-  def reject
-    @booking.status = "Rejected"
-    @booking.save
-    redirect_to booking_path(@booking)
-  end
-
   def destroy
 
   end

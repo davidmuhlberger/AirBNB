@@ -4,7 +4,7 @@
 <br>
 <br>
 <br>
-<div class="container bg-darker-grey">
+<div class="container bg-darker-grey text-center">
   <br>
       <div class="row">
         <div class="col-xs-2"></div>
@@ -23,10 +23,10 @@
               <p>
                 <%= @booking.flat.night_price %> &euro; x <%= (@booking.check_out - @booking.check_in).to_i %> nights
                 <br>
-                Total: <%= (@booking.flat.night_price * (@booking.check_out - @booking.check_in).to_i) %> &euro;
+                <strong>Total: <%= (@booking.flat.night_price * (@booking.check_out - @booking.check_in).to_i) %> &euro;</strong>
               </p>
-              <p><%= link_to "Edit booking", edit_user_booking_path(@booking), class: "btn btn-warning" %></p>
-              <p><%= link_to "Back to my bookings", user_bookings_path %></p>
+              <p><strong>Status: <%= @booking.status %></strong></p>
+              <p><%= link_to "Back to my bookings", user_bookings_path, class: "btn btn-primary" %></p>
             </div>
           </div>
         </div>

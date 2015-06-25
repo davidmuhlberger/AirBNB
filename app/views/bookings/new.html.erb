@@ -7,20 +7,15 @@
 
 <%= simple_form_for(@booking, url: flat_bookings_path) do |f| %>
   <%= f.error_notification %>
-
-  <%= f.input :guests, label: "Number of guests" %>
+  <% guests_choice = [] %>
+  <%(1..@flat.capacity).each {|number| guests_choice << number} %>
+  <%= f.input :guests, :label => "Number of guests", :collection => guests_choice %>
   <%= f.input :check_in, as: :string, :input_html => { :data => {:provide => :datepicker, 'date-format': "dd/mm/yyyy"} } %>
   <%= f.input :check_out, as: :string, :input_html => { :data => {:provide => :datepicker, 'date-format': "dd/mm/yyyy"} } %>
-  <%= f.input :message %>
+  <%= f.input :message, label: "Leave a message for #{@flat.user.first_name} #{@flat.user.last_name}" %>
   <p><%= f.button :submit %></p>
 <% end %>
   </div>
   <div class="col-xs-2"></div>
 </div>
 </div>
-
-
-<!--
-Date.strptime('06-30-2015', '%m-%d-%Y')
-
-'06/30/2015' -->

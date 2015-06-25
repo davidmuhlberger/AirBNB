@@ -1,0 +1,47 @@
+<div class="text-center">
+  <h1>Rental requests</h1>
+</div>
+<br>
+<br>
+<br>
+<div class="container bg-darker-grey">
+  <div class="row">
+    <% @requests.each do |request| %>
+        <div class="col-xs-12 text-center">
+          <div class="row">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10 white-card">
+              <p><%= "Renting request for " %> <strong><%= request.flat.title %></strong></p>
+              <p>From <strong><%= request.check_in%></strong> to <strong><%= request.check_out%></strong></p>
+              <p><%= "PepereBnB member: #{request.user.first_name} #{request.user.last_name}" %></p>
+              <%= image_tag request.user.picture.url(:thumb), class: "img-small-round" %>
+              <%= request.user.email %>
+              <br>
+              <div class="text-center">
+                <h4>Booking request status</h4>
+              </div>
+              <br>
+              <% if request.status == "Pending" %>
+                <h4 class="text-muted"><strong><%= "Pending... Please confirm or reject" %></strong></h4>
+                <%= link_to "Confirm booking request",  users_booking_confirm_path(request), class: "btn btn-success btn-block"%>
+                <%= link_to "Reject booking request",  users_booking_reject_path(request), class: "btn btn-danger btn-block"%>
+              <% elsif request.status == "Cancelled" %>
+                <h4 class="text-danger"><strong><%= "Booking cancelled by traveller" %></strong></h4>
+              <% elsif request.status == "Rejected" %>
+                <h4 class="text-danger"><strong><%= "You rejected the booking" %></strong></h4>
+              <% elsif request.status == "Confirmed" %>
+                <h4 class="text-success"><strong><%= "You confirmed booking" %></strong></h4>
+              <% end %>
+            </div>
+          <div class="col-xs-1"></div>
+        </div>
+        </div>
+      <% end %>
+<br>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
