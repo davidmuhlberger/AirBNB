@@ -10,7 +10,9 @@
 
   <%= f.input :guests, label: "Number of guests" %>
   <%= f.input :check_in %>
+  <input data-provide="datepicker">
   <%= f.input :check_out %>
+  <input data-provide="datepicker">
   <%= f.input :message %>
   <p><%= f.button :submit %></p>
 <% end %>
