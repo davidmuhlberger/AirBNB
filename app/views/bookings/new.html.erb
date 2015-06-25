@@ -7,11 +7,12 @@
 
 <%= simple_form_for(@booking, url: flat_bookings_path) do |f| %>
   <%= f.error_notification %>
-
-  <%= f.input :guests, label: "Number of guests" %>
+  <% guests_choice = [] %>
+  <%(1..@flat.capacity).each {|number| guests_choice << number} %>
+  <%= f.input :guests, :label => "Number of guests", :collection => guests_choice %>
   <%= f.input :check_in %>
   <%= f.input :check_out %>
-  <%= f.input :message %>
+  <%= f.input :message, label: "Leave a message for #{@flat.user.first_name} #{@flat.user.last_name}" %>
   <p><%= f.button :submit %></p>
 <% end %>
   </div>
