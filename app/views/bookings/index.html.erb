@@ -21,7 +21,6 @@
               <p>Check in: <%= booking.check_in %></p>
               <p>Check out: <%= booking.check_out %></p>
               <p>Guests: <%= booking.guests %></p>
-              <p>Status: <%= booking.status %></p>
               <p>Price: <%= (booking.flat.night_price * (booking.check_out - booking.check_in).to_i) %> &euro;</p>
             </div>
             <div class="col-xs-12 text-center">
@@ -32,15 +31,15 @@
               </div>
               <br>
               <% if booking.status == "Pending" %>
-                <button type="button" class="btn btn-default btn-block"><%= booking.status %></button>
+                <h4 class="text-muted"><strong><%= "Pending..." %></strong></h4>
                 <br>
                 <%= link_to "Cancel booking request",  booking_cancel_user_path(booking), class: "text-danger"%>
               <% elsif booking.status == "Cancelled" %>
-                <button type="button" class="btn btn-danger btn-block"><%= booking.status %></button>
+                <h4 class="text-danger"><strong><%= "Cancelled by you" %></strong></h4>
               <% elsif booking.status == "Rejected" %>
-                <button type="button" class="btn btn-danger btn-block"><%= booking.status %></button>
+                <h4 class="text-danger"><strong><%= "Rejected by owner" %></strong></h4>
               <% elsif booking.status == "Confirmed" %>
-                <button type="button" class="btn btn-success btn-block"><%= booking.status %></button>
+                <h4 class="text-success"><strong><%= "Confirmed by owner" %></strong></h4>
                 <br>
                 <%= link_to "Cancel booking request",  booking_cancel_user_path(booking), class: "text-danger"%>
               <% end %>

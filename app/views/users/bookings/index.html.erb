@@ -22,15 +22,15 @@
               </div>
               <br>
               <% if request.status == "Pending" %>
-                <button type="button" class="btn btn-default btn-block"><%= request.status %></button>
+                <h4 class="text-muted"><strong><%= "Pending... Please confirm or reject" %></strong></h4>
                 <%= link_to "Confirm booking request",  users_booking_confirm_path(request), class: "btn btn-success btn-block"%>
                 <%= link_to "Reject booking request",  users_booking_reject_path(request), class: "btn btn-danger btn-block"%>
               <% elsif request.status == "Cancelled" %>
-                <button type="button" class="btn btn-danger btn-block"><%= request.status %></button>
+                <h4 class="text-danger"><strong><%= "Booking cancelled by traveller" %></strong></h4>
               <% elsif request.status == "Rejected" %>
-                <button type="button" class="btn btn-danger btn-block"><%= request.status %></button>
+                <h4 class="text-danger"><strong><%= "You rejected the booking" %></strong></h4>
               <% elsif request.status == "Confirmed" %>
-                <button type="button" class="btn btn-success btn-block"><%= request.status %></button>
+                <h4 class="text-success"><strong><%= "You confirmed booking" %></strong></h4>
               <% end %>
             </div>
           <div class="col-xs-1"></div>
