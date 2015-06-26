@@ -1,0 +1,8 @@
+<p>Hi <%= @user.first_name %>,</p>
+<br>
+<p>Your booking request for <%= @flat.title %> from <%= @booking.check_in %> to <%= @booking.check_out %> has been sent to the owner, <%= @flat.user.first_name %> <%= @flat.user.last_name %>.</p>
+<p>We will keep you updated when <%= @flat.user.first_name %> confirms your booking</p>
+<br>
+<p>Cheers,</p>
+<br>
+<p>PepereBnB team</p>
