@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @today = Date.today.strftime('%d-%m-%Y')
     @booking = Booking.new
   end
 
