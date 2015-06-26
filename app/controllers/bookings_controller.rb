@@ -4,7 +4,11 @@ class BookingsController < ApplicationController
   before_action :find_booking, only: [:edit, :cancel, :update, :confirm, :reject]
 
   def index
-    @bookings = current_user.bookings
+    @bookings = []
+      current_user.bookings.each do |booking|
+        @bookings << booking
+      end
+      @bookings.sort_by! {|booking| -(booking.updated_at).to_f}
   end
 
   def show

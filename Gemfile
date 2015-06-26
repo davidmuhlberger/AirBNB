@@ -3,8 +3,6 @@ source 'https://rails-assets.org'
 
 ruby '2.2.2'
 
-gem "letter_opener", group: :development
-
 gem 'aws-sdk', '< 2.0'
 
 gem 'paperclip'
