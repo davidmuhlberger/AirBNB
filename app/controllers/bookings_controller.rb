@@ -25,8 +25,6 @@ class BookingsController < ApplicationController
     @booking.status = "Pending"
     if @booking.save
       redirect_to booking_path(@booking)
-      BookingMailer.new_booking_traveler(current_user, @flat, @booking).deliver_now
-      BookingMailer.new_request_owner(current_user, @flat, @booking).deliver_now
     else
       render :new
     end
@@ -46,8 +44,6 @@ class BookingsController < ApplicationController
     @booking.save
     @flat = @booking.flat
     redirect_to booking_path(@booking)
-    BookingMailer.cancel_booking_traveler(current_user, @flat, @booking).deliver_now
-    BookingMailer.cancel_request_owner(current_user, @flat, @booking).deliver_now
   end
 
   def destroy
