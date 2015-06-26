@@ -3,6 +3,8 @@ class FlatsController < ApplicationController
     #@flats = Flat.where("LOWER(address_city) = :city AND capacity >= :guests", city: params[:city].downcase, guests: params[:guests])
     if params[:city].present? && params[:guests].present?
       @flats = Flat.near(params[:city].downcase, 20).where("capacity >= ?", params[:guests])
+    elsif params[:city].present? && !params[:guests].present?
+      @flats = Flat.near(params[:city].downcase, 20)
     else
       @flats = Flat.all
     end
@@ -10,7 +12,6 @@ class FlatsController < ApplicationController
       marker.lat flat.latitude
       marker.lng flat.longitude
       marker.infowindow "<img src=#{flat.picture.url(:thumb)} alt=""> <br> <h5 class='text-center text-primary'><strong>#{flat.night_price} &euro; per night</strong></h5>"
-      #{}"<button class='btn btn-success'><%= flat.title %></button>"
     end
   end
 
