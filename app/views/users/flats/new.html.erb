@@ -1,24 +1,27 @@
-<div class="container">
-  <div class="row">
+<div class="bg-wood">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-2"></div>
+      <div class="col-xs-8">
+      <h1>Create a new island place</h1>
+
+  <%= simple_form_for(@flat, url: users_flats_path, html: { multipart: true }) do |f| %>
+    <%= f.error_notification %>
+
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :address_numberstreet, label: "Number and street" %>
+    <%= f.input :address_zip, label: "Zip code" %>
+    <%= f.input :address_city, label: "City" %>
+    <%= f.input :night_price, label: "Price per night in euro" %>
+    <%= f.input :capacity, label: "Persons" %>
+    <%= f.input :picture, as: :file, label: "Add a picture of your island" %>
+    <%= f.button :submit %>
+  <% end %>
+      <br>
+      <br>
+    </div>
     <div class="col-xs-2"></div>
-    <div class="col-xs-8">
-    <h1>Create a new flat</h1>
-
-<%= simple_form_for(@flat, url: users_flats_path, html: { multipart: true }) do |f| %>
-  <%= f.error_notification %>
-
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :address_numberstreet %>
-  <%= f.input :address_zip %>
-  <%= f.input :address_city %>
-  <%= f.input :night_price, label: "price per night in euro" %>
-  <%= f.input :capacity, label: "persons" %>
-  <%= f.input :picture, as: :file, label: "Add a picture of your place" %>
-  <%= f.button :submit %>
-<% end %>
   </div>
-  <div class="col-xs-2"></div>
+  </div>
 </div>
-</div>
-
