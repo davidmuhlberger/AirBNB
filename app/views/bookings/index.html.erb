@@ -21,19 +21,23 @@
               <p>Check in: <%= booking.check_in %></p>
               <p>Check out: <%= booking.check_out %></p>
               <p>Guests: <%= booking.guests %></p>
-              <p>Price: <%= (booking.flat.night_price * (booking.check_out - booking.check_in).to_i) %> &euro;</p>
+              <p>Price: <strong><%= (booking.flat.night_price * (booking.check_out - booking.check_in).to_i) %> &euro;</p></strong>
+              <div class="row grey-card-150">
+                <div class="col-xs-12">
+                  <p><%= "Owner: #{booking.flat.user.first_name} #{booking.flat.user.last_name}" %></p>
+                  <%= image_tag booking.flat.user.picture.url(:thumb), class: "img-small-round" %>
+                  <%= booking.flat.user.email %>
+                </div>
+              </div>
             </div>
             <div class="col-xs-12 text-center">
               <div class="text-center">
-                <br>
-                <br>
-                <h4>Booking status</h4>
+                <h4>Booking status:</h4>
               </div>
-              <br>
               <% if booking.status == "Pending" %>
                 <h4 class="text-muted"><strong><%= "Pending..." %></strong></h4>
                 <br>
-                <%= link_to "Cancel booking request",  booking_cancel_user_path(booking), class: "text-danger"%>
+                <%= link_to "Cancel booking request",  booking_cancel_user_path(booking), class: "btn btn-danger"%>
               <% elsif booking.status == "Cancelled" %>
                 <h4 class="text-danger"><strong><%= "Cancelled by you" %></strong></h4>
               <% elsif booking.status == "Rejected" %>
@@ -41,7 +45,7 @@
               <% elsif booking.status == "Confirmed" %>
                 <h4 class="text-success"><strong><%= "Confirmed by owner" %></strong></h4>
                 <br>
-                <%= link_to "Cancel booking request",  booking_cancel_user_path(booking), class: "text-danger"%>
+                <%= link_to "Cancel booking request",  booking_cancel_user_path(booking), class: "btn btn-danger"%>
               <% end %>
             </div>
             </div>

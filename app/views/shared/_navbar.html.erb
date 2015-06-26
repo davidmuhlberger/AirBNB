@@ -23,6 +23,13 @@
                 <%= image_tag current_user.picture, class: "img-avatar" %>
               <% else %>
                 <%= image_tag current_user.picture.url(:thumb), class: "img-avatar" %>
+                 <% if notifications > 0 %>
+                    <div class="notif" id="notifications-main-div">
+                      <div id="notifications-number-div">
+                        <strong><%= notifications %></strong>
+                      </div>
+                    </div>
+                  <% end %>
               <% end %>
               Profile <span class="caret"></span>
             <% end %>
@@ -35,11 +42,25 @@
               <li>
                 <%= link_to user_bookings_path do %>
                   <i class="fa fa-plane"></i>  <%= t ".profile", default: "My travels" %>
+                  <% if notif_bookings > 0 %>
+                    <div class="notif" id="bookings-main-div">
+                      <div id="bookings-number-div">
+                        <strong><%= notif_bookings %></strong>
+                      </div>
+                    </div>
+                  <% end %>
                 <% end %>
               </li>
               <li>
                 <%= link_to users_bookings_path do %>
                   <i class="fa fa-home"></i>  <%= t ".profile", default: "My requests" %>
+                  <% if notif_requests > 0 %>
+                    <div class="notif" id="requests-main-div">
+                      <div id="requests-number-div">
+                        <strong><%= notif_requests %></strong>
+                      </div>
+                    </div>
+                  <% end %>
                 <% end %>
               </li>
               <li>
