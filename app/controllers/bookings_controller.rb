@@ -21,6 +21,8 @@ class BookingsController < ApplicationController
     @booking.status = "Pending"
     if @booking.save
       redirect_to booking_path(@booking)
+      BookingMailer.new_booking_traveler(current_user, @flat, @booking).deliver_now
+      BookingMailer.new_request_owner(current_user, @flat, @booking).deliver_now
     else
       render :new
     end

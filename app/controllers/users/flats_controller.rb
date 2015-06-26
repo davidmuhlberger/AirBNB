@@ -10,6 +10,7 @@ module Users
     def create
       @flat = current_user.flats.build(flat_params)
       if @flat.save
+        FlatMailer.new_flat(current_user, @flat).deliver_now
         redirect_to user_path
       else
         render :new
