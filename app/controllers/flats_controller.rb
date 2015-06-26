@@ -9,7 +9,7 @@ class FlatsController < ApplicationController
     @markers = Gmaps4rails.build_markers(@flats) do |flat, marker|
       marker.lat flat.latitude
       marker.lng flat.longitude
-      marker.infowindow "toto"
+      marker.infowindow "<img src=#{flat.picture.url(:thumb)} alt=""> <br> <h5 class='text-center text-primary'><strong>#{flat.night_price} &euro; per night</strong></h5>"
       #{}"<button class='btn btn-success'><%= flat.title %></button>"
     end
   end
