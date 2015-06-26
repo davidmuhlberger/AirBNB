@@ -40,7 +40,10 @@ class BookingsController < ApplicationController
   def cancel
     @booking.status = "Cancelled"
     @booking.save
+    @flat = @booking.flat
     redirect_to booking_path(@booking)
+    BookingMailer.cancel_booking_traveler(current_user, @flat, @booking).deliver_now
+    BookingMailer.cancel_request_owner(current_user, @flat, @booking).deliver_now
   end
 
   def destroy

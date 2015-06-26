@@ -8,6 +8,9 @@ module Users
       @booking = Booking.find(params[:id])
       @booking.status = "Rejected"
       @booking.save
+      @flat = @booking.flat
+      BookingMailer.reject_booking_traveler(current_user, @flat, @booking).deliver_now
+      BookingMailer.reject_request_owner(current_user, @flat, @booking).deliver_now
       redirect_to users_bookings_path
     end
 

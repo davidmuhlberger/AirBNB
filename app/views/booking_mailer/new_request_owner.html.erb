@@ -1,9 +1,10 @@
 <p>Hi <%= @flat.user.first_name %>,</p>
 <br>
 <p>You received a new booking request for <%= @flat.title %> for the period <%= @booking.check_in %> to <%= @booking.check_out %>, from <%= @user.first_name %> <%= @user.last_name %>.</p>
+<p><%= @user.first_name %> sent you the following message : <%= @booking.message %></p>
 <p>Please connect on PepereBnB and confirm the booking.</p>
 <br>
-<p>Thanks you !</p>
+<p>Thank you !</p>
 <br>
 <p>Cheers,</p>
 <br>
