@@ -39,7 +39,7 @@
               <% if booking.status == "Pending" %>
                 <h4 class="text-muted"><strong><%= "Pending..." %></strong></h4>
                 <br>
-                <%= link_to "Cancel booking request",  booking_cancel_user_path(booking), class: "btn btn-danger"%>
+                <%= link_to "Cancel booking request",  booking_cancel_user_path(booking), class: "text-danger"%>
               <% elsif booking.status == "Cancelled" %>
                 <h4 class="text-danger"><strong><%= "Cancelled by you" %></strong></h4>
               <% elsif booking.status == "Rejected" %>
