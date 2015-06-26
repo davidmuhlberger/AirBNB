@@ -14,7 +14,7 @@
             <div class="col-xs-1"></div>
             <div class="col-xs-10 white-card">
               <p><%= "Renting request for " %> <strong><%= request.flat.title %></strong></p>
-              <p>From <strong><%= request.check_in%></strong> to <strong><%= request.check_out%></strong></p>
+              <p>From <strong><%= l request.check_in%></strong> to <strong><%= l request.check_out%></strong></p>
               <p><%= "Robinson member: #{request.user.first_name} #{request.user.last_name}" %></p>
               <%= image_tag request.user.picture.url(:thumb), class: "img-small-round" %>
               <%= request.user.email %>
