@@ -23,7 +23,7 @@
             <br>
             <p><%= "Night price: #{flat.night_price} €" %></p>
             <p><%= "Capacity: #{flat.capacity} people" %></p>
-            <p><%= "Owner: #{flat.user.first_name} #{flat.user.last_name}" %></p>
+            <p><%= "Owner: #{flat.user.first_name} #{flat.user.last_name}" %><%= image_tag flat.user.picture.url(:thumb), class: "img-small-round" %></p>
           </div>
         </div>
         <div class="col-xs-1"></div>
