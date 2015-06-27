@@ -1,6 +1,7 @@
 class FlatsController < ApplicationController
   def index
     #@flats = Flat.where("LOWER(address_city) = :city AND capacity >= :guests", city: params[:city].downcase, guests: params[:guests])
+    @guests = params[:guests]
     if params[:city].present? && params[:guests].present?
       @flats = Flat.near(params[:city].downcase, 500).where("capacity >= ?", params[:guests])
     elsif params[:city].present? && !params[:guests].present?

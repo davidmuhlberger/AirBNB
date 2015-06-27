@@ -17,8 +17,8 @@
             </div>
             <div class="col-xs-12 col-sm-6">
               <h4><%= @booking.flat.title %></h4>
-              <p>Check in: <%= l @booking.check_in %></p>
-              <p>Check out: <%= l @booking.check_out %></p>
+              <p>Check in: <%= @booking.check_in.strftime('%B %-d %Y') %></p>
+              <p>Check out: <%= @booking.check_out.strftime('%B %-d %Y') %></p>
               <p>Guests: <%= @booking.guests %></p>
               <p>Status: <%= @booking.status %></p>
 
